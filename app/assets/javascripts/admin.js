@@ -16,5 +16,6 @@
 //= require bootstrap
 //= require admin/carbon
 //= require select2-full
-//= require datatables
 //= require cocoon
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap

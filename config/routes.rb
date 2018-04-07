@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
   namespace :admin do
+  	resources :schools
+  	resources :students
     get 'dashboard/index'
     root "dashboard#index"
   end
