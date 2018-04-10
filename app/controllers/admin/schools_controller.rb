@@ -49,6 +49,6 @@ class Admin::SchoolsController < Admin::BaseController
   end
 
   def section_params
-  	params.require(:school).permit(:name, :number_student)
+  	params.require(:school).permit(:name, :number_of_students)
   end
 end

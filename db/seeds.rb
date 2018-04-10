@@ -12,3 +12,17 @@ unless Administrator.any?
     password: "vinova123"
   )
 end
+
+
+school_names = ["Admiralty Secondary School", "Ahmad Ibrahim Secondary School", "Anderson Secondary School", "Anglican High School", "Anglo-Chinese School (Barker Road)", "Anglo-Chinese School (Independent)", "Ang Mo Kio Secondary School"]
+puts "Create School"
+unless School.any?
+  school_names.each do |s|
+  	School.create(
+    	name: s,
+    	number_of_students: rand(200..2000)
+  	)
+  end
+end
+
+

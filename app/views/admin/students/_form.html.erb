@@ -1,0 +1,11 @@
+<%= simple_form_for([:admin,@student], class: 'form-control') do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :school, input_html: { class: "form-control" } %>
+  <%= f.input :name, input_html: { class: "form-control" } %>
+  <%= f.input :email, input_html: { class: "form-control" }  %>
+  <%= f.input :class_name, input_html: { class: "form-control" }  %>
+  <%= f.input :level, input_html: { class: "form-control" }  %>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -69,14 +69,19 @@ ActiveRecord::Schema.define(version: 20180406090732) do
   end
 
   create_table "quiz_submissions", force: :cascade do |t|
-    t.bigint "user_id"
     t.bigint "quiz_id"
+    t.bigint "school_id"
+    t.bigint "student_id"
+    t.string "name"
+    t.string "class_name"
+    t.integer "level"
     t.integer "total_score"
     t.boolean "is_complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_quiz_submissions_on_quiz_id"
-    t.index ["user_id"], name: "index_quiz_submissions_on_user_id"
+    t.index ["school_id"], name: "index_quiz_submissions_on_school_id"
+    t.index ["student_id"], name: "index_quiz_submissions_on_student_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -90,20 +95,24 @@ ActiveRecord::Schema.define(version: 20180406090732) do
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.integer "number_student"
+    t.integer "number_of_students"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
-    t.bigint "school_id"
-    t.string "name"
-    t.string "email"
-    t.string "class"
-    t.integer "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["school_id"], name: "index_students_on_school_id"
+    t.string "email", null: false
+    t.string "encrypted_password"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_students_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
 end

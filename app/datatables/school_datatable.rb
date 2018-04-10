@@ -3,7 +3,7 @@ class SchoolDatatable < AjaxDatatablesRails::Base
     @view_columns ||={
       id:                       { source: "School.id", orderable: true, cond: :eq },
       name:                     { source: "School.name", cond: :like, searchable: true, orderable: true },
-      number_student:           { source: "School.number_student", searchable: false, orderable: true },
+      number_of_students:           { source: "School.number_of_students", searchable: false, orderable: true },
       created_at:               { source: "School.created_at", orderable: true },
       action:                   { source: "School.id" }
     }
@@ -14,7 +14,7 @@ class SchoolDatatable < AjaxDatatablesRails::Base
       {
         id:                       record.id,
         name:                     record.name,
-        number_student:           record.number_student,
+        number_of_students:           record.number_of_students,
         created_at:               record.created_at,
         action:                   "<div class='pull-left'>
                                       <div class='btn-group'>
